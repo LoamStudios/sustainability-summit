@@ -13,10 +13,7 @@ gem 'jquery-rails'
 
 gem 'jbuilder', '~> 2.0'
 
-gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'thin'
 
 group :development, :test do
   gem "guard", ">= 2.2.2", :require => false
