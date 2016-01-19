@@ -9,8 +9,9 @@ end
 # Framework
 gem 'rails', '4.2.5'
 gem 'sqlite3'
+gem 'clearance', '~> 1.12.1'
 
-# CSS
+# HTML/CSS
 gem "flutie"
 gem 'high_voltage', '~> 2.4.0'
 gem 'sass-rails', '~> 5.0'

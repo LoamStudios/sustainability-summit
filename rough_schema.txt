@@ -1,0 +1,61 @@
+/
+/about
+/register
+/venue
+
+
+# A person can be either a conference team member or a guest speaker
+Person
+    last_name
+    first_name
+    org
+    title
+    org2
+    title2
+    description
+    image
+Team
+    name
+    belongs_to event
+    has_many people
+
+Event
+    name
+    has_many sponsorships
+    has_many teams
+
+Session
+    name
+    description
+    location
+    belongs_to timeslot
+    has_and_belongs_to people
+
+Timeslot
+    start
+    end
+    belongs_to event
+    has_one session
+
+Sponsor
+    name
+    url
+    logo.jpg
+    logo.svg
+
+Sponsorship
+    name
+    belongs_to event
+    priority
+    has_and_belongs_to_many sponsors
+
+Photo
+    belongs_to event
+
+
+Templates
+    Application - html root, top nav, and footer
+        Page - sub nav, title, sub content
+            Program - defines subcontent
+            Sponsors - defines subcontent
+            Team - defines subcontent

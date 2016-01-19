@@ -1,0 +1,17 @@
+<div>
+  <ul class="subnavbar">
+    <% nav_items.each do |item|%>
+      <li <% if current_page?(item.path) %> class="subnavbar_active" <% end %>>
+        <a href="<%= item.path%>"><%= item.text %></a>
+      </li>
+    <% end %>
+  </ul>
+  <div class="subnavbar_mobile">
+    <select onchange="if(this.value!=='') { $('#loading').show(); window.location.href=this.value; }">
+      <% nav_items.each do |item|%>
+        <option value="<%= item.path %>" <% if current_page?(item.path) %> selected="selected" <% end %>><%= item.title %></option>
+      <% end %>
+    </select>
+  </div>
+  <h1 class="content_title"><%= page_title %></h1>
+</div>
