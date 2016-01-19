@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
+//= require jquery-ujs
+//= require jquery.transit
+//= require swipebox
 //= require_tree .

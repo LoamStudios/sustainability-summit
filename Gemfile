@@ -1,18 +1,28 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery'
+  gem 'rails-assets-jquery-ujs'
+  gem 'rails-assets-jquery.transit', "~>0.9.9"
+  gem 'rails-assets-swipebox', "~>1.2.9"
+end
 
+# Framework
 gem 'rails', '4.2.5'
 gem 'sqlite3'
 
-
+# CSS
 gem "flutie"
+gem 'high_voltage', '~> 2.4.0'
 gem 'sass-rails', '~> 5.0'
 
+# Javascript
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
 
+# JSON
 gem 'jbuilder', '~> 2.0'
 
+# Application Server
 gem 'thin'
 
 group :development, :test do
