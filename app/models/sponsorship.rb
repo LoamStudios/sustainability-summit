@@ -12,5 +12,5 @@
 
 class Sponsorship < ActiveRecord::Base
     belongs_to :event
-    has_and_belongs_to_many :sponsors
+    has_and_belongs_to_many :sponsors, -> { order name: :asc }
 end

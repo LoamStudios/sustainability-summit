@@ -10,6 +10,7 @@ end
 gem 'rails', '4.2.5'
 gem 'sqlite3'
 gem 'clearance', '~> 1.12.1'
+gem "administrate", "~> 0.1.2"
 
 # HTML/CSS
 gem "flutie"
