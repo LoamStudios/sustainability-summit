@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   get "banner", to: "banners#index"
   
+  resource :program, only: [:show]
+  resources :photos
+  resources :sponsors, only: [:index]
+  resource :team, only: [:show]
+  
   namespace :admin do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|
       resources dashboard_resource

@@ -1,3 +1,3 @@
-<li class="clickable <% if current_page?(page_path(page)) %>navbar_active<% else %> navbar_inactive <% end %>" onclick="window.location.href='<%= page_path(page) %>'">
-    <a href="<%= page_path(page)%>"><%= page.titleize %></a>
+<li class="clickable <% if current_page?(path) %>navbar_active<% else %> navbar_inactive <% end %>" onclick="window.location.href='<%= path %>'">
+    <a href="<%= path %>"><%= name %></a>
 </li>
