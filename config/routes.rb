@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  get "banner", to: "banners#index"
   
   namespace :admin do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|
