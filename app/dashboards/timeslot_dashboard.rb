@@ -24,9 +24,9 @@ class TimeslotDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :event,
-    :sessions,
-    :id,
     :start,
+    :end,
+    :sessions
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,7 +38,6 @@ class TimeslotDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :event,
-    :sessions,
     :start,
     :end,
   ]
@@ -46,7 +45,7 @@ class TimeslotDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how timeslots are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(timeslot)
-  #   "Timeslot ##{timeslot.id}"
-  # end
+  def display_resource(timeslot)
+    "#{timeslot.start.strftime("%H:%M")} - #{timeslot.end.strftime("%H:%M")}"
+  end
 end

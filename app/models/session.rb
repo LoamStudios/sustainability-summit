@@ -14,4 +14,8 @@
 class Session < ActiveRecord::Base
     has_and_belongs_to_many :people, -> { order last_name: :asc }
     belongs_to :timeslot
+
+    def event_name
+        timeslot.event.name
+    end
 end

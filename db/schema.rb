@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119222036) do
+ActiveRecord::Schema.define(version: 20160120011010) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -27,32 +27,33 @@ ActiveRecord::Schema.define(version: 20160119222036) do
     t.string   "organization2"
     t.string   "title2"
     t.text     "description"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
-    t.string   "email",                          default: "", null: false
-    t.string   "encrypted_password", limit: 128, default: "", null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.string   "email",                          default: "",    null: false
+    t.string   "encrypted_password", limit: 128, default: "",    null: false
     t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, default: "", null: false
+    t.string   "remember_token",     limit: 128, default: "",    null: false
+    t.boolean  "admin",                          default: false
   end
 
   add_index "people", ["email"], name: "index_people_on_email"
   add_index "people", ["remember_token"], name: "index_people_on_remember_token"
 
   create_table "people_sessions", id: false, force: :cascade do |t|
-    t.integer "people_id"
-    t.integer "sessions_id"
+    t.integer "person_id"
+    t.integer "session_id"
   end
 
-  add_index "people_sessions", ["people_id"], name: "index_people_sessions_on_people_id"
-  add_index "people_sessions", ["sessions_id"], name: "index_people_sessions_on_sessions_id"
+  add_index "people_sessions", ["person_id"], name: "index_people_sessions_on_person_id"
+  add_index "people_sessions", ["session_id"], name: "index_people_sessions_on_session_id"
 
   create_table "people_teams", id: false, force: :cascade do |t|
-    t.integer "people_id"
-    t.integer "teams_id"
+    t.integer "person_id"
+    t.integer "team_id"
   end
 
-  add_index "people_teams", ["people_id"], name: "index_people_teams_on_people_id"
-  add_index "people_teams", ["teams_id"], name: "index_people_teams_on_teams_id"
+  add_index "people_teams", ["person_id"], name: "index_people_teams_on_person_id"
+  add_index "people_teams", ["team_id"], name: "index_people_teams_on_team_id"
 
   create_table "sessions", force: :cascade do |t|
     t.string   "name"
@@ -71,12 +72,12 @@ ActiveRecord::Schema.define(version: 20160119222036) do
   end
 
   create_table "sponsors_sponsorships", id: false, force: :cascade do |t|
-    t.integer "sponsors_id"
-    t.integer "sponsorships_id"
+    t.integer "sponsor_id"
+    t.integer "sponsorship_id"
   end
 
-  add_index "sponsors_sponsorships", ["sponsors_id"], name: "index_sponsors_sponsorships_on_sponsors_id"
-  add_index "sponsors_sponsorships", ["sponsorships_id"], name: "index_sponsors_sponsorships_on_sponsorships_id"
+  add_index "sponsors_sponsorships", ["sponsor_id"], name: "index_sponsors_sponsorships_on_sponsor_id"
+  add_index "sponsors_sponsorships", ["sponsorship_id"], name: "index_sponsors_sponsorships_on_sponsorship_id"
 
   create_table "sponsorships", force: :cascade do |t|
     t.integer  "event_id"

@@ -23,6 +23,8 @@ class PersonDashboard < Administrate::BaseDashboard
     email: Field::String,
     encrypted_password: Field::String,
     remember_token: Field::String,
+    admin: Field::Boolean,
+    password: Field::String.with_options(type: "password")
   }
 
   # COLLECTION_ATTRIBUTES
@@ -46,8 +48,7 @@ class PersonDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :sessions,
-    :teams,
+    :email,
     :last_name,
     :first_name,
     :organization,
@@ -55,16 +56,14 @@ class PersonDashboard < Administrate::BaseDashboard
     :organization2,
     :title2,
     :description,
-    :email,
-    :encrypted_password,
-    :confirmation_token,
-    :remember_token,
+    :admin,
+    :password
   ]
 
   # Overwrite this method to customize how people are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(person)
-  #   "Person ##{person.id}"
-  # end
+  
+  def display_resource(person)
+    "#{person.first_name} #{person.last_name}"
+  end
 end

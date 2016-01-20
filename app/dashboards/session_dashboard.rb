@@ -8,14 +8,15 @@ class SessionDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    people: Field::HasMany,
-    timeslot: Field::BelongsTo,
     id: Field::Number,
+    event_name: Field::String,
+    timeslot: Field::BelongsTo,
     name: Field::String,
     description: Field::Text,
     location: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    people: Field::HasMany
   }
 
   # COLLECTION_ATTRIBUTES
@@ -24,10 +25,11 @@ class SessionDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :people,
+    :event_name,
     :timeslot,
-    :id,
     :name,
+    :location,
+    :description
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -48,7 +50,7 @@ class SessionDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how sessions are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(session)
-  #   "Session ##{session.id}"
-  # end
+  def display_resource(session)
+    session.name
+  end
 end

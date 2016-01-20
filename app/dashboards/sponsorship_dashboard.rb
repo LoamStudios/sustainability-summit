@@ -24,9 +24,8 @@ class SponsorshipDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :event,
-    :sponsors,
-    :id,
     :name,
+    :sponsors
   ]
 
   # SHOW_PAGE_ATTRIBUTES
