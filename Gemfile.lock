@@ -1,3 +1,19 @@
+GIT
+  remote: git://github.com/thoughtbot/administrate.git
+  revision: 9ac62d0495ec9026833574def8bc5eb1bca2d5de
+  specs:
+    administrate (0.1.2)
+      autoprefixer-rails (~> 6.0)
+      datetime_picker_rails (~> 0.0.6)
+      jquery-rails (~> 4.0)
+      kaminari (~> 0.16)
+      momentjs-rails (~> 2.8)
+      neat (~> 1.1)
+      normalize-rails (~> 3.0)
+      rails (~> 4.2)
+      sass-rails (~> 5.0)
+      selectize-rails (~> 0.6)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -38,18 +54,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    administrate (0.1.2)
-      autoprefixer-rails (~> 6.0)
-      datetime_picker_rails (~> 0.0.6)
-      inline_svg (~> 0.6)
-      jquery-rails (~> 4.0)
-      kaminari (~> 0.16)
-      momentjs-rails (~> 2.8)
-      neat (~> 1.1)
-      normalize-rails (~> 3.0)
-      rails (~> 4.2)
-      sass-rails (~> 5.0)
-      selectize-rails (~> 0.6)
     annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
@@ -132,10 +136,6 @@ GEM
       minitest (>= 3.0)
     high_voltage (2.4.0)
     i18n (0.7.0)
-    inline_svg (0.6.1)
-      activesupport (>= 4.0.4)
-      loofah (>= 2.0)
-      nokogiri (~> 1.6)
     jbuilder (2.4.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -292,7 +292,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  administrate (~> 0.1.2)
+  administrate!
   annotate (~> 2.6.6)
   better_errors
   binding_of_caller
