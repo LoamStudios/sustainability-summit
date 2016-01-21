@@ -1,0 +1,171 @@
+<% title = "Program" %>
+<% content_for :title do %>
+<%= page_title(title)%>
+<% end %>
+
+<div class="content_page">
+<%= render "layouts/subnav", nav_items: @subnav_items, page_title: title%>
+
+Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summit. Please stay tuned for the 2016 program. Thanks!<br><br>
+
+<div class="program_mobile">
+  <% timeslot_last = 0 %>
+  <% @timeslot_list.each do |timeslot| %>
+    <% if timeslot_last == 0 || timeslot.start.strftime("%Y%m%d") != timeslot_last.start.strftime("%Y%m%d") %>
+      <div class="program_row">
+        <div class="program_date">
+          <%= timeslot.start.strftime("<b>%A</b> %e %B %Y").html_safe %>
+        </div>
+      </div>
+    <% end %>
+    <% timeslot_last = timeslot %>
+    <% timeslot.sessions.each do |session| %>
+      <% if (session.description.present? && session.description.strip != "") || session.people.any? %>
+        <div class="clickable program_mobile_row program_mobile_row_clickable" onclick="$(this).next('.program_mobile_session_description').slideToggle();$(this).children('.program_mobile_icon').toggleClass('program_mobile_icon_off program_mobile_icon_on')" data-time_start="<% timeslot.start.strftime("%s") }}" data-time_end="<% timeslot.end.strftime("%s") %>">
+          <div class="program_mobile_icon program_mobile_icon_off"></div>
+          <div class="program_mobile_time">
+            <%=  timeslot.start.strftime("%H:%M") %>
+          </div>
+          <div class="program_mobile_session">
+            <%= session.name %>
+          </div>
+        </div>
+      <% else %>
+        <div class="program_mobile_row" data-time_start="<%= timeslot.start.strftime("%s") %>" data-time_end="<%= timeslot.end.strftime("%s") %>">
+          <div class="program_mobile_icon"></div>
+          <div class="program_mobile_time">
+            <%= timeslot.start.strftime("%H:%M") %>
+          </div>
+          <div class="program_mobile_session">
+            <%= session.name %>
+          </div>
+        </div>
+      <% end %>
+      <% if (session.description and session.description.strip() != "") || session.people.any? %>
+        <div class="program_mobile_session_description">
+          <% session.description.bbcode_to_html %> 
+          <% session.people.each do |person| %>
+            <div class="clickable program_mobile_session_person" onclick="$(this).next('.program_mobile_session_person_description').slideToggle();">
+              <div class="program_mobile_session_person_picture">
+                <img src="<%= person.get_picture_url(size='60x60') %>">
+              </div>
+              <b><%= person.first_name %> <%= person.last_name %></b><br>
+              <%= person.title %>, <%= person.organization %>
+            </div>
+            <div class="program_mobile_session_person_description">
+              <% if person.description.present? %>
+                <%= person.description.bbcode_to_html %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="program">
+  <% timeslot_last = 0 %>
+  <% @timeslot_list.each do |timeslot| %>
+    <% if timeslot_last == 0 || timeslot.start.strftime("%Y%m%d") != timeslot_last.start.strftime("%Y%m%d") %>
+      <div class="program_row">
+        <div class="program_date">
+          <%= timeslot.start.strftime("<b>%A</b> %e %B %Y").html_safe %>
+        </div>
+      </div>
+      <% timeslot_last = timeslot %>
+    <% end %>
+      <div class="program_row" data-time_start="<% timeslot.start.strftime("%s") }}" data-time_end="<% timeslot.end.strftime("%s") %>">
+        <div class="program_time">
+          <%= timeslot.start.strftime("%H:%M") %>
+        </div>
+        <div class="program_timeslot">
+          <% timeslot.sessions.each do |session| %>
+            <% if (session.description.present? && session.description.strip != "") || session.people.any? %>
+              <div class="clickable program_session" onclick="window.location.href='#<%= session.name.parameterize %>'">
+                <span style="font-size:12px;"><a href="#<%= session.name.parameterize %>">READ MORE &raquo;</a></span>
+                <div class="program_session_name"><%= session.name %></div>
+              </div>
+            <% else %>
+              <div class="program_session">
+                <div class="program_session_name"><%= session.name %></div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<br><br>
+<div class="program">
+<h2>Session descriptions</h2><br>
+
+<% @timeslot_list.each do |timeslot| %>
+  <% timeslot.sessions.each do |session| %>
+    <% if (session.description.present? && session.description.strip != "") || session.people.any? %>
+      <a name="<%= session.name.parameterize %>"></a>
+      <div class="clickable program_backtotop" onclick="window.location.href='#'"></div>
+      <h3 style="padding-left:15px;border-left:15px solid #b0c0b0;"><%= session.name %></h3>
+      <%= session.description.bbcode_to_html %>
+      <% session.people.each do |person| %>
+        <div class="program_person">
+          <div class="program_person_cell">
+            <img src="<% person.get_picture_url(size='120x120') %>">
+          </div>
+          <div class="program_person_cell">
+            <div class="program_person_name">
+              <% person.first_name %> <% person.last_name %>
+            </div>
+            <div class="program_person_titleorg">
+              <%= person.title.upcase %>, <%= person.organization %><br>
+              <% if person.description.present? %>
+                <div class="program_readdescription clickable" onclick="$(this).next('.program_person_description').slideToggle()"></div>
+                <div class="program_person_description">
+                  <%= person.description.bbcode_to_html %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <br><br>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+</div>
+
+ <script type="text/javascript">
+$(function(){
+  runProgramTimer();
+});
+
+var PROGRAM_TZOFFSET=0; // -4;
+
+function runProgramTimer() {
+  var marked = false;
+  $('.program_row').each(function(){
+    var now = (new Date).getTime()/1000 + PROGRAM_TZOFFSET*3600;
+    if(($(this).data('time_start')<now||!marked) && now<$(this).data('time_end')) {
+      $(this).addClass('program_row_active');
+      marked = true;
+    } else {
+      $(this).removeClass('program_row_active');
+    }
+  });
+  marked = false;
+  $('.program_mobile_row').each(function(){
+    var now = (new Date).getTime()/1000 + PROGRAM_TZOFFSET*3600;
+    if(($(this).data('time_start')<now||!marked) && $(this).data('time_end')>now) {
+      $(this).addClass('program_mobile_row_active');
+      marked = true;
+    } else {
+      $(this).removeClass('program_mobile_row_active');
+    }
+  });
+  window.setTimeout('runProgramTimer()',5000);
+}
+
+</script>
+</div>

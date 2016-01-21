@@ -1,7 +1,7 @@
 <div>
   <ul class="subnavbar">
     <% nav_items.each do |item|%>
-      <li <% if current_page?(item.path) %> class="subnavbar_active" <% end %>>
+      <li <% if item.current_page? %> class="subnavbar_active" <% end %>>
         <a href="<%= item.path%>"><%= item.text %></a>
       </li>
     <% end %>
@@ -9,7 +9,7 @@
   <div class="subnavbar_mobile">
     <select onchange="if(this.value!=='') { $('#loading').show(); window.location.href=this.value; }">
       <% nav_items.each do |item|%>
-        <option value="<%= item.path %>" <% if current_page?(item.path) %> selected="selected" <% end %>><%= item.title %></option>
+        <option value="<%= item.path %>" <% if item.current_page? %> selected="selected" <% end %>><%= item.text %></option>
       <% end %>
     </select>
   </div>

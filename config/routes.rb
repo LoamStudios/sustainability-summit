@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get "banner", to: "banners#index"
-  
+
+  get "/program/:id", to: "programs#show", as: :program_year
   resource :program, only: [:show]
+  resources :programs, only: [:show]
+
   resources :photos
   resources :sponsors, only: [:index]
   resource :team, only: [:show]
