@@ -8,12 +8,14 @@ end
 
 # Framework
 gem 'rails', '4.2.5'
-gem 'sqlite3'
+gem 'pg'
+# gem 'sqlite3'
 gem 'clearance', '~> 1.12.1'
 gem "administrate", github: 'thoughtbot/administrate'
 
 # HTML/CSS
 gem "flutie"
+gem 'ruby-bbcode'
 gem 'high_voltage', '~> 2.4.0'
 gem 'sass-rails', '~> 5.0'
 
