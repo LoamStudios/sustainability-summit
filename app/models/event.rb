@@ -22,4 +22,8 @@ class Event < ActiveRecord::Base
     def self.with_teams
         joins(:teams).group(:id).order(name: :desc).having("COUNT(teams.id) > 0")
     end
+
+    def self.with_sponsorships
+        joins(:sponsorships).group(:id).order(name: :desc).having("COUNT(sponsorships.id) > 0")
+    end
 end
