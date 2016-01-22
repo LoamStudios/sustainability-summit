@@ -13,14 +13,6 @@ class ProgramsController < ApplicationController
     end
 
     def events_with_programs
-        @events = Event.with_program
-    end
-
-    def event(year)
-        if year.present?
-            Event.find_by(name: year)
-        else
-            @events.first
-        end
+        @events = Event.with_programs
     end
 end

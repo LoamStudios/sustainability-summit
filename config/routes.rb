@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :photos
   resources :sponsors, only: [:index]
+  
+  get "/program/:id", to: "teams#show", as: :team_year
   resource :team, only: [:show]
+  resources :teams, only: [:show]
   
   namespace :admin do
     DashboardManifest::DASHBOARDS.each do |dashboard_resource|

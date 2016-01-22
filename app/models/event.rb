@@ -15,7 +15,11 @@ class Event < ActiveRecord::Base
 
     validates :name, uniqueness: true
 
-    def self.with_program
+    def self.with_programs
         joins(:timeslots).group(:id).order(name: :desc).having("COUNT(timeslots.id) > 0")
+    end
+
+    def self.with_teams
+        joins(:teams).group(:id).order(name: :desc).having("COUNT(teams.id) > 0")
     end
 end

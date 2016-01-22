@@ -28,8 +28,8 @@ class SessionDashboard < Administrate::BaseDashboard
     :event_name,
     :timeslot,
     :name,
-    :location,
-    :description
+    :description,
+    :location
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,11 +40,11 @@ class SessionDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :people,
     :timeslot,
     :name,
     :description,
     :location,
+    :people
   ]
 
   # Overwrite this method to customize how sessions are displayed

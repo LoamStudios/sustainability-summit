@@ -13,4 +13,7 @@
 class Timeslot < ActiveRecord::Base
     belongs_to :event
     has_many :sessions
+
+    validates :start, presence: true
+    validates :end, presence: true
 end
