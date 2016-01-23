@@ -6,12 +6,12 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-swipebox', "~>1.2.9"
 end
 
-# Framework
+# Big Stuff
 gem 'rails', '4.2.5'
 gem 'pg'
-# gem 'sqlite3'
 gem 'clearance', '~> 1.12.1'
 gem "administrate", github: 'thoughtbot/administrate'
+gem "paperclip", "~> 4.3"
 
 # HTML/CSS
 gem "flutie"
