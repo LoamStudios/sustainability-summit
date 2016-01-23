@@ -15,16 +15,16 @@
         <% sponsorship.sponsors.each do |sponsor| %>
           <% if sponsorship.priority == 0 %>
           <div class="sponsor sponsor_big clickable" onclick="var w=window.open('<%= sponsor.url %>','_blank');w.focus();">
-            <% if "sponsor.get_logo_raster_url()" %>
-              <img alt="<%= sponsor.name %>" style="width:290px;height:165px;" src="<%= "sponsor.get_logo_raster_url('580x330')" %>">
+            <% if sponsor.logo.present? %>
+              <img alt="<%= sponsor.name %>" style="width:290px;height:165px;" src="<%= sponsor.logo(:large) %>">
             <% else %>
               <div style="margin-top:38px;"><%= sponsor.name %></div>
             <% end  %>
           </div> 
           <% else %>
-          <div class="sponsor sponsor_small clickable" onclick="var w=window.open('{{ sponsor.url }}','_blank');w.focus();">
-            <% if "sponsor.get_logo_raster_url()" %>
-              <img alt="{{ sponsor.name }}" style="width:210px;height:110px;" src="{{ sponsor.get_logo_raster_url() }}">
+          <div class="sponsor sponsor_small clickable" onclick="var w=window.open('<%= sponsor.logo(:large) %>','_blank');w.focus();">
+            <% if sponsor.logo.present? %>
+              <img alt="{{ sponsor.name }}" style="width:210px;height:110px;" src="<%= sponsor.logo(:large) %>">
             <% else %>
               <div style="margin-top:38px;"><%= sponsor.name %></div>
             <% end %>

@@ -24,7 +24,7 @@ class PersonDashboard < Administrate::BaseDashboard
     encrypted_password: Field::String,
     remember_token: Field::String,
     admin: Field::Boolean,
-    password: Field::String.with_options(type: "password")
+    password: Field::String.with_options(type: "password"),
     avatar: Field::Image
   }
 
@@ -49,7 +49,7 @@ class PersonDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :avatar
+    :avatar,
     :email,
     :last_name,
     :first_name,
