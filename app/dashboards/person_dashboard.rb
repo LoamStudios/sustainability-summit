@@ -25,6 +25,7 @@ class PersonDashboard < Administrate::BaseDashboard
     remember_token: Field::String,
     admin: Field::Boolean,
     password: Field::String.with_options(type: "password")
+    avatar: Field::Image
   }
 
   # COLLECTION_ATTRIBUTES
@@ -33,7 +34,7 @@ class PersonDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    # photo
+    :avatar,
     :last_name,
     :first_name,
     :sessions,
@@ -48,6 +49,7 @@ class PersonDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :avatar
     :email,
     :last_name,
     :first_name,

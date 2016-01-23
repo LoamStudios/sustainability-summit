@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class SponsorDashboard < Administrate::BaseDashboard
+class PhotoDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,13 +8,15 @@ class SponsorDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    sponsorships: Field::HasMany,
     id: Field::Number,
-    name: Field::String,
-    url: Field::String,
+    event: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    logo: Field::Image
+    image_file_name: Field::String,
+    image_content_type: Field::String,
+    image_file_size: Field::Number,
+    image_updated_at: Field::DateTime,
+    image: Field::Image
   }
 
   # COLLECTION_ATTRIBUTES
@@ -23,29 +25,35 @@ class SponsorDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :logo,
-    :name,
-    :url,
+    :image,
+    :event,
+    :created_at,
+    :updated_at,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = ATTRIBUTE_TYPES.keys
+  SHOW_PAGE_ATTRIBUTES = [
+    :image,
+    :created_at,
+    :updated_at,
+    :image_file_name,
+    :image_file_size,
+    :image_updated_at,
+  ]
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :logo,
-    :name,
-    :url,
-    :sponsorships,
+    :event,
+    :image
   ]
 
-  # Overwrite this method to customize how sponsors are displayed
+  # Overwrite this method to customize how photos are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(sponsor)
-  #   "Sponsor ##{sponsor.id}"
+  # def display_resource(photo)
+  #   "Photo ##{photo.id}"
   # end
 end

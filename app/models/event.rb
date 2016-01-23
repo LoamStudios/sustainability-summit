@@ -12,6 +12,7 @@ class Event < ActiveRecord::Base
     has_many :teams
     has_many :timeslots
     has_many :sponsorships, -> { order priority: :asc}
+    has_many :photos
 
     validates :name, uniqueness: true
 
@@ -25,5 +26,9 @@ class Event < ActiveRecord::Base
 
     def self.with_sponsorships
         joins(:sponsorships).group(:id).order(name: :desc).having("COUNT(sponsorships.id) > 0")
+    end
+
+    def self.with_photos
+        joins(:photos).group(:id).having("COUNT(photos.id) > 0")
     end
 end

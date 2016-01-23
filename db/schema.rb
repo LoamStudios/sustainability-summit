@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120011010) do
+ActiveRecord::Schema.define(version: 20160123011940) do
 
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  
+
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -29,33 +30,47 @@ ActiveRecord::Schema.define(version: 20160120011010) do
     t.string   "organization2"
     t.string   "title2"
     t.text     "description"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "email",                          default: "",    null: false
-    t.string   "encrypted_password", limit: 128, default: "",    null: false
-    t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128, default: "",    null: false
-    t.boolean  "admin",                          default: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "email",                           default: "",    null: false
+    t.string   "encrypted_password",  limit: 128, default: "",    null: false
+    t.string   "confirmation_token",  limit: 128
+    t.string   "remember_token",      limit: 128, default: "",    null: false
+    t.boolean  "admin",                           default: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
-  add_index "people", ["email"], name: "index_people_on_email"
-  add_index "people", ["remember_token"], name: "index_people_on_remember_token"
+  add_index "people", ["email"], name: "index_people_on_email", using: :btree
+  add_index "people", ["remember_token"], name: "index_people_on_remember_token", using: :btree
 
   create_table "people_sessions", id: false, force: :cascade do |t|
     t.integer "person_id"
     t.integer "session_id"
   end
 
-  add_index "people_sessions", ["person_id"], name: "index_people_sessions_on_person_id"
-  add_index "people_sessions", ["session_id"], name: "index_people_sessions_on_session_id"
+  add_index "people_sessions", ["person_id"], name: "index_people_sessions_on_person_id", using: :btree
+  add_index "people_sessions", ["session_id"], name: "index_people_sessions_on_session_id", using: :btree
 
   create_table "people_teams", id: false, force: :cascade do |t|
     t.integer "person_id"
     t.integer "team_id"
   end
 
-  add_index "people_teams", ["person_id"], name: "index_people_teams_on_person_id"
-  add_index "people_teams", ["team_id"], name: "index_people_teams_on_team_id"
+  add_index "people_teams", ["person_id"], name: "index_people_teams_on_person_id", using: :btree
+  add_index "people_teams", ["team_id"], name: "index_people_teams_on_team_id", using: :btree
+
+  create_table "photos", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "event_id"
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.string   "name"
@@ -69,8 +84,12 @@ ActiveRecord::Schema.define(version: 20160120011010) do
   create_table "sponsors", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "sponsors_sponsorships", id: false, force: :cascade do |t|
@@ -78,8 +97,8 @@ ActiveRecord::Schema.define(version: 20160120011010) do
     t.integer "sponsorship_id"
   end
 
-  add_index "sponsors_sponsorships", ["sponsor_id"], name: "index_sponsors_sponsorships_on_sponsor_id"
-  add_index "sponsors_sponsorships", ["sponsorship_id"], name: "index_sponsors_sponsorships_on_sponsorship_id"
+  add_index "sponsors_sponsorships", ["sponsor_id"], name: "index_sponsors_sponsorships_on_sponsor_id", using: :btree
+  add_index "sponsors_sponsorships", ["sponsorship_id"], name: "index_sponsors_sponsorships_on_sponsorship_id", using: :btree
 
   create_table "sponsorships", force: :cascade do |t|
     t.integer  "event_id"

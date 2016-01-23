@@ -16,7 +16,8 @@ class DashboardManifest
     :sponsorships,
     :people,
     :teams,
-    :events
+    :events,
+    :photos
   ]
 
   # `ROOT_DASHBOARD`

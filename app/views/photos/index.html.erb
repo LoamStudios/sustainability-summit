@@ -1,3 +1,16 @@
+<% title = "Photos"%>
 <% content_for :title do %>
-<%= page_title("Photos")%>
+<%= page_title(title)%>
 <% end %>
+
+<div class="content_page">
+    <%= render "layouts/subnav", nav_items: @subnav_items, page_title: title %>
+
+    <% @photos.each do |photo| %>
+        <div class="photos_thumbnail clickable">
+            <a class="swipebox" href="<%= photo.image.url(:large) %>">
+                <img src="<%= photo.image.url(:small) %>">
+            </a>
+        </div>
+    <% end %>
+</div>

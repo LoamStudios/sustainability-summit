@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :program, only: [:show]
   resources :programs, only: [:show]
 
+  get "/photos/:id", to: "photos#index", as: :photos_year
   resources :photos, only: [:index]
 
   get "/sponsors/:id", to: "sponsors#index", as: :sponsor_year
