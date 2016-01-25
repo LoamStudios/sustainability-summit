@@ -34,12 +34,14 @@ By default, it renders:
 
     <main class="main-content" role="main">
       
-      <div class="dashboard-menu">
-        <% if signed_in? %>
+      
+      <% if signed_in? %>
+        <div class="header" style="padding:.5em 1.5em; background-color: #f1f1f1; color: grey; font-size: .8em; justify-content: flex-end; align-items: center;">
           <%= current_user.email %>
-          <%= button_to "Sign out", sign_out_path, method: :delete %>
-        <% end %>
-      </div>
+          <%= button_to "Sign out", sign_out_path, method: :delete, style:"background-color: grey; margin-left: 1em;" %>
+        </div>
+      <% end %>
+      
 
       <%= content_for(:search) %>
       <%= render "flashes" -%>
