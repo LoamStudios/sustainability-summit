@@ -30,7 +30,9 @@
 
 class Person < ActiveRecord::Base
     include Clearance::User
-    has_attached_file :avatar, styles: { logo: "420x220" }
+    has_attached_file :avatar, styles: { mobile: "60x60#", normal: "120x120#" },
+    default_style: :normal, default_url: "/images/person_blank.jpg"
+    
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
     has_and_belongs_to_many :sessions
     has_and_belongs_to_many :teams

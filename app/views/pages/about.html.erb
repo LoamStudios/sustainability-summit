@@ -6,9 +6,11 @@
   <div>
     <h1 class="content_title">About</h1>
   </div>
+
+  <% photo = Photo.find_by(image_file_name: "img_8171.jpg")%>
   <div class="photo_desktop_right">
-    <a href="/photos/2013/img_8171.jpg" class="swipebox">
-      <img src="/photos/2013/img_8171.jpg/600x400">
+    <a href="<%= photo.image.url %>" class="swipebox">
+      <img src="<%= photo.image.url(:large) %>">
     </a>
   </div>
   The MIT Sustainability Summit is an annual event that has grown to include more
@@ -17,9 +19,11 @@
   like Jeremy Grantham (GMO), Jim Hanna (Starbucks), Mindy Lubber (Ceres), Nancy
   Gillis (GSA), Jeffrey Hollender (Seventh Generation), Scot Horst (USGBC), James
   Balog (Chasing Ice), Rick Ridgeway (VP Patagonia) and many more.
+
+  <% photo = Photo.find_by(image_file_name: "img_8171.jpg")%>
   <div class="photo_mobile">
-    <a href="/photos/2013/img_8171.jpg" class="swipebox">
-      <img src="/photos/2013/img_8171.jpg/600x400">
+    <a href="<%= photo.image.url %>" class="swipebox">
+      <img src="<%= photo.image.url(:large) %>">
     </a>
   </div>
   <br><br>
@@ -28,9 +32,11 @@
   science, and management--are in a unique position to bring business and societal
   leaders together with academic researchers and students to address challenges in
   sustainability. <br><br>
+
+  <% photo = Photo.find_by(image_file_name: "img_7928.jpg")%>
   <div class="photo_desktop_left">
-    <a href="/photos/2013/img_7928.jpg" class="swipebox">
-      <img src="/photos/2013/img_7928.jpg/600x400">
+    <a href="<%= photo.image.url %>" class="swipebox">
+      <img src="<%= photo.image.url(:large) %>">
     </a>
   </div>
   The 6th MIT Sustainability Summit has the theme of “Coastal Cities – Sustainable
@@ -53,8 +59,8 @@
   sponsors, participants, and community. We invite you to join us at the 2014 MIT
   Sustainability Summit and be part of the sustainable future of your city.
   <div class="photo_mobile">
-    <a href="/photos/2013/img_7928.jpg" class="swipebox">
-      <img src="/photos/2013/img_7928.jpg/600x400">
+    <a href="<%= photo.image.url %>" class="swipebox">
+      <img src="<%= photo.image.url(:large) %>">
     </a>
   </div>
 </div>

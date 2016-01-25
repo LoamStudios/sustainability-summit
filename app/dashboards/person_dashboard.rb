@@ -24,7 +24,6 @@ class PersonDashboard < Administrate::BaseDashboard
     encrypted_password: Field::String,
     remember_token: Field::String,
     admin: Field::Boolean,
-    password: Field::String.with_options(type: "password"),
     avatar: Field::Image
   }
 
@@ -58,8 +57,7 @@ class PersonDashboard < Administrate::BaseDashboard
     :organization2,
     :title2,
     :description,
-    :admin,
-    :password
+    :admin
   ]
 
   # Overwrite this method to customize how people are displayed

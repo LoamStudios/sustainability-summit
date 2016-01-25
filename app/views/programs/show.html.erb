@@ -41,9 +41,9 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
           </div>
         </div>
       <% end %>
-      <% if (session.description and session.description.strip() != "") || session.people.any? %>
+      <% if (session.description.present? && session.description.strip() != "") || session.people.any? %>
         <div class="program_mobile_session_description">
-          <% session.description.bbcode_to_html %> 
+          <%= session.description.bbcode_to_html.html_safe %> 
           <% session.people.each do |person| %>
             <div class="clickable program_mobile_session_person" onclick="$(this).next('.program_mobile_session_person_description').slideToggle();">
               <div class="program_mobile_session_person_picture">
@@ -54,7 +54,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
             </div>
             <div class="program_mobile_session_person_description">
               <% if person.description.present? %>
-                <%= person.description.bbcode_to_html %>
+                <%= person.description.bbcode_to_html.html_safe %>
               <% end %>
             </div>
           <% end %>
@@ -107,7 +107,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
       <a name="<%= session.name.parameterize %>"></a>
       <div class="clickable program_backtotop" onclick="window.location.href='#'"></div>
       <h3 style="padding-left:15px;border-left:15px solid #b0c0b0;"><%= session.name %></h3>
-      <%= session.description.bbcode_to_html %>
+      <%= session.description.bbcode_to_html.html_safe %>
       <% session.people.each do |person| %>
         <div class="program_person">
           <div class="program_person_cell">
@@ -122,7 +122,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
               <% if person.description.present? %>
                 <div class="program_readdescription clickable" onclick="$(this).next('.program_person_description').slideToggle()"></div>
                 <div class="program_person_description">
-                  <%= person.description.bbcode_to_html %>
+                  <%= person.description.bbcode_to_html.html_safe %>
                 </div>
               <% end %>
             </div>

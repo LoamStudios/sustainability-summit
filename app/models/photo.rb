@@ -13,7 +13,7 @@
 #
 
 class Photo < ActiveRecord::Base
-    has_attached_file :image, styles: { small: "154x154", medium: "300x200", large: "600x400"}
+    has_attached_file :image, styles: { small: "154x154#", medium: "300x200#", large: "600x400#"}
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
     belongs_to :event
 end

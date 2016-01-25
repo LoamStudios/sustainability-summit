@@ -3,7 +3,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery'
   gem 'rails-assets-jquery-ujs'
   gem 'rails-assets-jquery.transit', "~>0.9.9"
-  gem 'rails-assets-swipebox', "~>1.2.9"
 end
 
 # Big Stuff
@@ -15,6 +14,7 @@ gem "paperclip", "~> 4.3"
 
 # HTML/CSS
 gem "flutie"
+gem 'swipebox'
 gem 'ruby-bbcode'
 gem 'high_voltage', '~> 2.4.0'
 gem 'sass-rails', '~> 5.0'

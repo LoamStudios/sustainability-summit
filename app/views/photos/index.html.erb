@@ -8,7 +8,7 @@
 
     <% @photos.each do |photo| %>
         <div class="photos_thumbnail clickable">
-            <a class="swipebox" href="<%= photo.image.url(:large) %>">
+            <a class="swipebox" href="<%= photo.image.url() %>">
                 <img src="<%= photo.image.url(:small) %>">
             </a>
         </div>
