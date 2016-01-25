@@ -34,6 +34,7 @@ class PersonDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :avatar,
+    :email,
     :last_name,
     :first_name,
     :admin,
