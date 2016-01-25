@@ -1,4 +1,5 @@
 Clearance.configure do |config|
+  config.cookie_domain = '.sustainabilitysummit.mit.edu'
   config.routes = false
   config.mailer_sender = "reply@example.com"
   config.user_model = Person
