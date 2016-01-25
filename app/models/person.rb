@@ -13,7 +13,7 @@
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  email               :string           not null
-#  encrypted_password  :string(128)      not null
+#  encrypted_password  :string(128)      default(""), not null
 #  confirmation_token  :string(128)
 #  remember_token      :string(128)      not null
 #  admin               :boolean          default(FALSE)
@@ -36,4 +36,12 @@ class Person < ActiveRecord::Base
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
     has_and_belongs_to_many :sessions
     has_and_belongs_to_many :teams
+
+    def email_optional?
+        !self.admin
+    end
+
+    def password_optional?
+        !self.admin
+    end
 end

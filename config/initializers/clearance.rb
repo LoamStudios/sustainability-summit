@@ -3,6 +3,7 @@ Clearance.configure do |config|
   config.routes = false
   config.mailer_sender = "reply@example.com"
   config.user_model = Person
+  config.sign_in_guards = [AdminCheckGuard]
 end
 Clearance.configuration.redirect_url = "/admin"
 Clearance::PasswordsController.layout 'layouts/admin/authentication'
