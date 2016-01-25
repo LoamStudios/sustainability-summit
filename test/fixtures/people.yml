@@ -12,10 +12,10 @@
 #  description         :text
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  email               :string           default(""), not null
-#  encrypted_password  :string(128)      default(""), not null
+#  email               :string           not null
+#  encrypted_password  :string(128)      not null
 #  confirmation_token  :string(128)
-#  remember_token      :string(128)      default(""), not null
+#  remember_token      :string(128)      not null
 #  admin               :boolean          default(FALSE)
 #  avatar_file_name    :string
 #  avatar_content_type :string

@@ -36,13 +36,27 @@ class PersonDashboard < Administrate::BaseDashboard
     :avatar,
     :last_name,
     :first_name,
+    :admin,
     :sessions,
     :teams
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = ATTRIBUTE_TYPES.keys
+  SHOW_PAGE_ATTRIBUTES = [
+    :avatar,
+    :email,
+    :last_name,
+    :first_name,
+    :organization,
+    :title,
+    :organization2,
+    :title2,
+    :description,
+    :admin,
+    :sessions,
+    :teams
+  ]
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
@@ -57,7 +71,9 @@ class PersonDashboard < Administrate::BaseDashboard
     :organization2,
     :title2,
     :description,
-    :admin
+    :admin,
+    :sessions,
+    :teams
   ]
 
   # Overwrite this method to customize how people are displayed
