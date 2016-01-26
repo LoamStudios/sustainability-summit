@@ -28,7 +28,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 
 # Application Server
-gem 'thin'
+gem 'puma'
 gem 'rails_12factor'
 
 group :development, :test do
