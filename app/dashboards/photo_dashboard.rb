@@ -16,7 +16,7 @@ class PhotoDashboard < Administrate::BaseDashboard
     image_content_type: Field::String,
     image_file_size: Field::Number,
     image_updated_at: Field::DateTime,
-    image: Field::Image
+    image: ImageManyField
   }
 
   # COLLECTION_ATTRIBUTES

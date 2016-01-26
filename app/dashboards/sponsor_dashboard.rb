@@ -39,7 +39,7 @@ class SponsorDashboard < Administrate::BaseDashboard
     :logo,
     :name,
     :url,
-    :sponsorships,
+    :sponsorships
   ]
 
   # Overwrite this method to customize how sponsors are displayed
