@@ -8,6 +8,6 @@ class AdminCheckGuard < Clearance::SignInGuard
   end
 
   def admin?
-    current_user.admin?
+    user_signed_in? && current_user.admin?
   end
 end
