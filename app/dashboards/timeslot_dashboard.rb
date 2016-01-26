@@ -11,8 +11,8 @@ class TimeslotDashboard < Administrate::BaseDashboard
     event: Field::BelongsTo,
     sessions: Field::HasMany,
     id: Field::Number,
-    start: Field::DateTime,
-    end: Field::DateTime,
+    start: FormattedDateTimeField.with_options(format: "%b %-d, %H:%M"),
+    end: FormattedDateTimeField.with_options(format: "%b %-d, %H:%M"),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }
@@ -51,6 +51,6 @@ class TimeslotDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(timeslot)
-    "#{timeslot.start.strftime("%H:%M")} - #{timeslot.end.strftime("%H:%M")}"
+    "#{timeslot.start.strftime("%b %-d, %Y")} #{timeslot.start.strftime("%H:%M")} - #{timeslot.end.strftime("%H:%M")}"
   end
 end

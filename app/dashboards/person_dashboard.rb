@@ -24,7 +24,8 @@ class PersonDashboard < Administrate::BaseDashboard
     encrypted_password: Field::String,
     remember_token: Field::String,
     admin: Field::Boolean,
-    avatar: Field::Image
+    avatar: Field::Image,
+    password: PasswordField
   }
 
   # COLLECTION_ATTRIBUTES
@@ -55,6 +56,7 @@ class PersonDashboard < Administrate::BaseDashboard
     :title2,
     :description,
     :admin,
+    :password,
     :sessions,
     :teams
   ]
@@ -72,15 +74,20 @@ class PersonDashboard < Administrate::BaseDashboard
     :organization2,
     :title2,
     :description,
-    :admin,
     :sessions,
-    :teams
+    :teams,
+    :admin,
+    :password
   ]
 
   # Overwrite this method to customize how people are displayed
   # across all pages of the admin dashboard.
   
   def display_resource(person)
-    "#{person.email} #{person.first_name} #{person.last_name}".strip
+    if person.first_name.blank? || person.last_name.blank?
+       "#{person.email}"
+    else
+      "#{person.first_name} #{person.last_name}".strip
+    end
   end
 end
