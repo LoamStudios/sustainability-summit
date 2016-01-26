@@ -244,6 +244,11 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.4)
     railties (4.2.5)
       actionpack (= 4.2.5)
       activesupport (= 4.2.5)
@@ -332,6 +337,7 @@ DEPENDENCIES
   rails-assets-jquery!
   rails-assets-jquery-ujs!
   rails-assets-jquery.transit (~> 0.9.9)!
+  rails_12factor
   rb-fsevent
   ruby-bbcode
   sass-rails (~> 5.0)
