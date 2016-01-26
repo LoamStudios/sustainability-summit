@@ -53,4 +53,8 @@ Rails.application.configure do
   }
   config.action_mailer.default_options = {"X-MC-Subaccount" => 'mit-summit'}
   config.action_mailer.delivery_method = :smtp
+
+  config.paperclip_defaults = {
+    :storage => :filesystem,
+  }
 end
