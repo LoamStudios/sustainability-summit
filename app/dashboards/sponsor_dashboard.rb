@@ -30,7 +30,7 @@ class SponsorDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = ATTRIBUTE_TYPES.keys
+  SHOW_PAGE_ATTRIBUTES = COLLECTION_ATTRIBUTES
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
@@ -45,7 +45,7 @@ class SponsorDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how sponsors are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(sponsor)
-  #   "Sponsor ##{sponsor.id}"
-  # end
+  def display_resource(sponsor)
+    "#{sponsor.name}"
+  end
 end

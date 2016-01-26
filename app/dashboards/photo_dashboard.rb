@@ -26,20 +26,15 @@ class PhotoDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :image,
-    :event,
-    :created_at,
-    :updated_at,
+    :event
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :image,
-    :created_at,
-    :updated_at,
     :image_file_name,
     :image_file_size,
-    :image_updated_at,
   ]
 
   # FORM_ATTRIBUTES
@@ -53,7 +48,7 @@ class PhotoDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how photos are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(photo)
-  #   "Photo ##{photo.id}"
-  # end
+  def display_resource(photo)
+    "#{photo.image_file_name}"
+  end
 end

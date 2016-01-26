@@ -23,22 +23,21 @@ class TeamDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :event,
-    :people,
-    :id,
     :name,
+    :people
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = ATTRIBUTE_TYPES.keys
+  SHOW_PAGE_ATTRIBUTES = COLLECTION_ATTRIBUTES
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :event,
-    :people,
     :name,
+    :people
   ]
 
   # Overwrite this method to customize how teams are displayed

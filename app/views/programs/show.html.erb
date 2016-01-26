@@ -47,7 +47,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
           <% session.people.each do |person| %>
             <div class="clickable program_mobile_session_person" onclick="$(this).next('.program_mobile_session_person_description').slideToggle();">
               <div class="program_mobile_session_person_picture">
-                <img src="<%= "person.get_picture_url(size='60x60')" %>">
+                <img src="<%= person.avatar.url(:mobile) %>">
               </div>
               <b><%= person.first_name %> <%= person.last_name %></b><br>
               <%= person.title %>, <%= person.organization %>
@@ -111,7 +111,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
       <% session.people.each do |person| %>
         <div class="program_person">
           <div class="program_person_cell">
-            <img src="<% person.get_picture_url(size='120x120') %>">
+            <img src="<%= person.avatar.url(:normal) %>">
           </div>
           <div class="program_person_cell">
             <div class="program_person_name">

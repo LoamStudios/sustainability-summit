@@ -81,6 +81,6 @@ class PersonDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   
   def display_resource(person)
-    "#{person.first_name} #{person.last_name}"
+    "#{person.email} #{person.first_name} #{person.last_name}".strip
   end
 end

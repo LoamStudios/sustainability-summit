@@ -37,15 +37,15 @@ class SponsorshipDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :event,
-    :sponsors,
     :name,
     :priority,
+    :sponsors
   ]
 
   # Overwrite this method to customize how sponsorships are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(sponsorship)
-  #   "Sponsorship ##{sponsorship.id}"
-  # end
+  
+  def display_resource(sponsorship)
+    "#{sponsorship.event.name} #{sponsorship.name}"
+  end
 end
