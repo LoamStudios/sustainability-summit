@@ -1,2 +1,4 @@
+heroku pg:reset DATABASE --confirm mit-summit
 heroku pg:push mit_summit_development DATABASE --app mit-summit
-aws s3 sync public/system s3://mit-summit --acl public-read
+aws s3 sync public/system s3://mit-summit --acl public-read --delete
+heroku restart
