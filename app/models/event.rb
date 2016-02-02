@@ -29,6 +29,6 @@ class Event < ActiveRecord::Base
     end
 
     def self.with_photos
-        joins(:photos).group(:id).having("COUNT(photos.id) > 0")
+        joins(:photos).group(:id).order(name: :desc).having("COUNT(photos.id) > 0")
     end
 end
