@@ -9,7 +9,7 @@
 #
 
 class Event < ActiveRecord::Base
-    has_many :teams
+    has_many :teams, -> { order id: :asc}
     has_many :timeslots
     has_many :sponsorships, -> { order priority: :asc}
     has_many :photos
