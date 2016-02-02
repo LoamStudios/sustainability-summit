@@ -33,7 +33,6 @@ Dir.chdir('db-sponsor') do |path|
         next if file.starts_with?(".") || file.ends_with?(".svg")
         puts "Importing #{file}"
         id = file.sub(/\.png/, "")
-        puts id
         sponsor = Sponsor.find_by(id: id)
         sponsor.update(logo: File.new(file))
     end
