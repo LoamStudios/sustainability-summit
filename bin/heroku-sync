@@ -1,0 +1,2 @@
+heroku pg:push mit_summit_development DATABASE --app mit-summit
+aws s3 sync public/system s3://mit-summit --acl public-read
