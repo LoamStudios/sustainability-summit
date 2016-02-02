@@ -1,4 +1,6 @@
 # clean the database
+rm -rf public/system
+
 rake db:drop
 rake db:setup
 

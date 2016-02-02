@@ -27,7 +27,6 @@ Dir.chdir('db-person') do |path|
         person.update(avatar: File.new(file))
     end
 end
-
 Dir.chdir('db-sponsor') do |path| 
     Dir.foreach(".") do |file|
         next if file.starts_with?(".") || file.ends_with?(".svg")
@@ -37,4 +36,5 @@ Dir.chdir('db-sponsor') do |path|
         sponsor.update(logo: File.new(file)) if sponsor.present?
     end
 end
+
 
