@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "/sponsors/:id", to: "sponsors#index", as: :sponsor_year
   resources :sponsors, only: [:index]
   
-  get "/program/:id", to: "teams#show", as: :team_year
+  get "/team/:id", to: "teams#show", as: :team_year
   resource :team, only: [:show]
   resources :teams, only: [:show]
   
