@@ -17,3 +17,6 @@
 /tmp
 
 public/system
+lib/data/db-person
+lib/data/db-sponsor
+lib/data/photos
