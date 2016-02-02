@@ -22,9 +22,9 @@
             <% end  %>
           </div> 
           <% else %>
-          <div class="sponsor sponsor_small clickable" onclick="var w=window.open('<%= sponsor.logo(:large) %>','_blank');w.focus();">
+          <div class="sponsor sponsor_small clickable" onclick="var w=window.open('<%= sponsor.url %>','_blank');w.focus();">
             <% if sponsor.logo.present? %>
-              <img alt="<%= sponsor.name %>" style="width:210px;height:110px;" src="<%= sponsor.logo(:large) %>">
+              <img alt="<%= sponsor.name %>" style="width:210px;height:110px;" src="<%= sponsor.logo(:medium) %>">
             <% else %>
               <div style="margin-top:38px;"><%= sponsor.name %></div>
             <% end %>
