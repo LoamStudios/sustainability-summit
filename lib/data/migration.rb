@@ -34,7 +34,7 @@ Dir.chdir('db-sponsor') do |path|
         puts "Importing #{file}"
         id = file.sub(/\.png/, "")
         sponsor = Sponsor.find_by(id: id)
-        sponsor.update(logo: File.new(file))
+        sponsor.update(logo: File.new(file)) if sponsor.present?
     end
 end
 
