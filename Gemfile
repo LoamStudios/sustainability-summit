@@ -28,7 +28,6 @@ gem 'jbuilder', '~> 2.0'
 
 # Application Server
 gem 'puma'
-gem 'rails_12factor'
 
 group :development, :test do
   gem "guard", ">= 2.2.2", :require => false
