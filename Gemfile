@@ -11,7 +11,6 @@ gem 'pg'
 gem 'clearance', '~> 1.12.1'
 gem "administrate", github: 'thoughtbot/administrate'
 gem "paperclip", "~> 4.3"
-gem 'aws-sdk-v1'
 
 # HTML/CSS
 gem "flutie"

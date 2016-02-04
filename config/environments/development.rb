@@ -55,6 +55,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.paperclip_defaults = {
-    :storage => :filesystem,
+    :storage => :filesystem
   }
 end
