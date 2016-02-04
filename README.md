@@ -1,8 +1,6 @@
 # MIT Sustainability Summit
 
-## Deployment and Data Migration
-
-For the time being the site is deployed on Heroku.
+## Data Migration
 
 To migrate from the data in the old site run
 
@@ -32,7 +30,28 @@ looks for a record with the corresponding id as the file name and updates the
 record. On save, the image is processed by paperclip and stored in
 `public/system`.
 
-## Syncing with Heroku
+## Deploy to VM
+
+The app can also be deployed to a VM on anyone of the cloud providers using
+Capistrano. The easiest way to setup a VM is to follow the [GoRails
+Guide](https://gorails.com/deploy/ubuntu/14.04). If you use CentOS or RHEL,
+you'll need to find a way to workaround SELinux. Passenger doesn't play nice
+with it.
+
+## Deploying to Heroku
+
+Add `gem 'aws-sdk-v1` to the gemfile and add the following snippet to the
+paperclip configuration block in `config/environments/production.rb`:
+
+```
+:storage => :s3,
+:s3_credentials => {
+:bucket => ENV['S3_BUCKET_NAME'],
+:access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+}
+```
+Don't forget to remove ':storage => :filesytem'. You can only have one entry
 
 Running
 ```
