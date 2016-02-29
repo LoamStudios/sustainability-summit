@@ -116,7 +116,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
           </div>
           <div class="program_person_cell">
             <div class="program_person_name">
-              <% person.first_name %> <% person.last_name %>
+              <%= person.first_name %> <%= person.last_name %>
             </div>
             <div class="program_person_titleorg">
               <%= person.title.upcase %>, <%= person.organization %><br>
