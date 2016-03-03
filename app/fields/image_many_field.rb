@@ -1,4 +1,4 @@
-require "administrate/fields/base"
+require "administrate/field/base"
 
 
 class ImageManyField < Administrate::Field::Base

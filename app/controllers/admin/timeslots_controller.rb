@@ -15,5 +15,16 @@ module Admin
 
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions
     # for more information
+
+    private
+
+    def order
+      @_order ||= if params[:order]
+        Administrate::Order.new(params[:order], params[:direction])
+      else
+        Administrate::Order.new('event_id', 'desc')
+      end
+    end
+
   end
 end

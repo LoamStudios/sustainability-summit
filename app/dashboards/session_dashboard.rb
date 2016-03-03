@@ -9,7 +9,7 @@ class SessionDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    event_name: Field::String,
+    event_name: Field::String.with_options(searchable: false),
     timeslot: Field::BelongsTo,
     name: Field::String,
     description: Field::Text,

@@ -1,4 +1,4 @@
-require "administrate/fields/base"
+require "administrate/field/base"
 
 class FormattedDateTimeField < Administrate::Field::Base
   def to_s
