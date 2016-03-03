@@ -22,7 +22,7 @@ module Admin
       @_order ||= if params[:order]
         Administrate::Order.new(params[:order], params[:direction])
       else
-        Administrate::Order.new('event_id', 'desc')
+        Administrate::Order.new('start', 'desc' )
       end
     end
 
