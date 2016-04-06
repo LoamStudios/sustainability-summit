@@ -20,7 +20,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
       </div>
     <% end %>
     <% timeslot_last = timeslot %>
-    <% timeslot.sessions.each do |session| %>
+    <% timeslot.sessions.order(updated_at: :asc).each do |session| %>
       <% if (session.description.present? && session.description.strip != "") || session.people.any? %>
         <div class="clickable program_mobile_row program_mobile_row_clickable" onclick="$(this).next('.program_mobile_session_description').slideToggle();$(this).children('.program_mobile_icon').toggleClass('program_mobile_icon_off program_mobile_icon_on')" data-time_start="<%= timeslot.start.strftime("%s") %>" data-time_end="<%= timeslot.end.strftime("%s") %>">
           <div class="program_mobile_icon program_mobile_icon_off"></div>
@@ -81,7 +81,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
           <%= timeslot.start.strftime("%H:%M") %>
         </div>
         <div class="program_timeslot">
-          <% timeslot.sessions.each do |session| %>
+          <% timeslot.sessions.order(updated_at: :asc).each do |session| %>
             <% if (session.description.present? && session.description.strip != "") || session.people.any? %>
               <div class="clickable program_session" onclick="window.location.href='#<%= session.name.parameterize %>'">
                 <span style="font-size:12px;"><a href="#<%= session.name.parameterize %>">READ MORE &raquo;</a></span>
@@ -103,7 +103,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
 <h2>Session descriptions</h2><br>
 
 <% @timeslot_list.each do |timeslot| %>
-  <% timeslot.sessions.each do |session| %>
+  <% timeslot.sessions.order(updated_at: :asc).each do |session| %>
     <% if (session.description.present? && session.description.strip != "") || session.people.any? %>
       <a name="<%= session.name.parameterize %>"></a>
       <div class="clickable program_backtotop" onclick="window.location.href='#'"></div>
