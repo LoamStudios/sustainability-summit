@@ -148,8 +148,10 @@ function runProgramTimer() {
   var marked = false;
   $('.program_row').each(function(){
     var now = new Date().getTime() / 1000 + PROGRAM_TZOFFSET*3600;
-    
-    if(($(this).data('time_start')< now || !marked) && now < $(this).data('time_end')) {
+    var start = $(this).data('time_start');
+    var end = $(this).data('time_end');
+
+    if( ( now > start) && ( now > start || !marked) && now < end ) {
       console.log("start: " + $(this).data('time_start'));
       console.log("end: " + $(this).data('time_end'));
       console.log("now: " +now);
@@ -162,7 +164,10 @@ function runProgramTimer() {
   marked = false;
   $('.program_mobile_row').each(function(){
     var now = (new Date).getTime()/1000 + PROGRAM_TZOFFSET*3600;
-    if(($(this).data('time_start')<now||!marked) && $(this).data('time_end')>now) {
+    var start = $(this).data('time_start');
+    var end = $(this).data('time_end');
+
+    if( ( now > start) && ( now > start || !marked) && now < end ) {
       $(this).addClass('program_mobile_row_active');
       marked = true;
     } else {
