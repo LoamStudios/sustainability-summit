@@ -24,21 +24,10 @@
 .sponsor-img{
   padding-top: 75px;
   padding-bottom: 75px;
-  margin-left: -25px;
   display: block;
   
   img{
-    width: 100%//1024px;
-  }
-}
-
-.promo-vid{
-  margin-left: -25px;
-  // padding-bottom: 56.25%;
-
-  iframe{
-    width: 100%; //750px;  
-    height: 561px; //421px
+    width: 100%;
   }
 }
 
@@ -793,16 +782,6 @@ h2 {
   }
   .program_mobile {
     display:block;
-  }
-
-  .sponsor-img, .promo-vid{
-    margin-left: 0px;
-  }
-  
-  .promo-vid{
-    iframe{
-      height: 281px
-    }
   }
 }
 @media screen and (max-width: 1000px) and (min-width: 100px) {
