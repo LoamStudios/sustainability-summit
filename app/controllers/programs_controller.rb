@@ -3,7 +3,7 @@ class ProgramsController < ApplicationController
         events_with_programs
         @event = event(params[:id])
         @subnav_items = menu_presenters
-        @timeslot_list = @event.timeslots.to_a.keep_if { |slot| slot.sessions.any?}
+        @timeslot_list = @event.timeslots.order(:start).to_a.keep_if { |slot| slot.sessions.any?}
     end
 
     def menu_presenters

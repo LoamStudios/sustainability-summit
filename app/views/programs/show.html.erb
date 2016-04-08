@@ -76,7 +76,7 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
       </div>
       <% timeslot_last = timeslot %>
     <% end %>
-      <div class="program_row" data-time_start="<% timeslot.start.strftime("%s") %>" data-time_end="<% timeslot.end.strftime("%s") %>">
+      <div class="program_row" data-time_start="<%= timeslot.start.strftime("%s") %>" data-time_end="<%= timeslot.end.strftime("%s") %>">
         <div class="program_time">
           <%= timeslot.start.strftime("%H:%M") %>
         </div>
@@ -142,13 +142,17 @@ $(function(){
   runProgramTimer();
 });
 
-var PROGRAM_TZOFFSET=0; // -4;
+var PROGRAM_TZOFFSET=-4; //-7; -4;
 
 function runProgramTimer() {
   var marked = false;
   $('.program_row').each(function(){
-    var now = (new Date).getTime()/1000 + PROGRAM_TZOFFSET*3600;
-    if(($(this).data('time_start')<now||!marked) && now<$(this).data('time_end')) {
+    var now = new Date().getTime() / 1000 + PROGRAM_TZOFFSET*3600;
+    
+    if(($(this).data('time_start')< now || !marked) && now < $(this).data('time_end')) {
+      console.log("start: " + $(this).data('time_start'));
+      console.log("end: " + $(this).data('time_end'));
+      console.log("now: " +now);
       $(this).addClass('program_row_active');
       marked = true;
     } else {
