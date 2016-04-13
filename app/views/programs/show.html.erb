@@ -44,6 +44,9 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
       <% end %>
       <% if (session.description.present? && session.description.strip() != "") || session.people.any? %>
         <div class="program_mobile_session_description">
+          <% if session.location.present? %>
+            <p class='program_session_location'>Location: <%= session.location %> </p>
+          <% end %>
           <%= session.description.bbcode_to_html.html_safe %> 
           <% session.people.each do |person| %>
             <div class="clickable program_mobile_session_person" onclick="$(this).next('.program_mobile_session_person_description').slideToggle();">
@@ -84,8 +87,13 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
           <% timeslot.sessions.order(updated_at: :asc).each do |session| %>
             <% if (session.description.present? && session.description.strip != "") || session.people.any? %>
               <div class="clickable program_session" onclick="window.location.href='#<%= session.name.parameterize %>'">
-                <span style="font-size:12px;"><a href="#<%= session.name.parameterize %>">READ MORE &raquo;</a></span>
-                <div class="program_session_name"><%= session.name %></div>
+                  <p class="program_session_name"><%= session.name %></p>
+                  <% if session.location.present? %>
+                    <p class='program_session_location'>Location: <%= session.location %> </p>
+                  <% end %>
+                  <span style="font-size:12px;">
+                    <a href="#<%= session.name.parameterize %>">READ MORE &raquo;</a>
+                  </span>
               </div>
             <% else %>
               <div class="program_session">
@@ -108,7 +116,10 @@ Below is the program from the <b><%= @event.name %></b> MIT Sustainability Summi
       <a name="<%= session.name.parameterize %>"></a>
       <div class="clickable program_backtotop" onclick="window.location.href='#'"></div>
       <h3 style="padding-left:15px;border-left:15px solid #b0c0b0;"><%= session.name %></h3>
-      <%= session.description.bbcode_to_html.html_safe %>
+      <% if session.location.present? %>
+        <p class='program_session_location'>Location: <%= session.location %> </p>
+      <% end %>
+      <p><%= session.description.bbcode_to_html.html_safe %></p>
       <% session.people.each do |person| %>
         <div class="program_person">
           <div class="program_person_cell">
