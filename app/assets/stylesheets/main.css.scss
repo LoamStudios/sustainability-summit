@@ -418,6 +418,7 @@ h2 {
   font-size:24px;
   border:2px solid white;
 }
+
 .program_timeslot {
   display:table;
   table-layout:fixed;
@@ -428,10 +429,6 @@ h2 {
   max-width:100%;
   display:table-cell;
   border:2px solid white;
-}
-
-.program_session_location {
-  font-size:13px;
 }
 
 .program_person {
@@ -506,7 +503,7 @@ h2 {
 .program_session_location{
   margin-top: 0px;
   margin-bottom: 5px;
-  font-size: small;
+  font-style: italic;
 }
 .program_readdescription {
   display:inline-block;
