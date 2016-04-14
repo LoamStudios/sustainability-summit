@@ -82,13 +82,13 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     :port =>           '587',
-    :address =>        'smtp.mandrillapp.com',
-    :user_name =>      ENV['MANDRILL_USERNAME'],
-    :password =>       ENV['MANDRILL_APIKEY'],
+    :address =>        'smtp.sendgrid.net',
+    :user_name =>      ENV['SENDGRID_USERNAME'],
+    :password =>       ENV['SENDGRID_PASSWORD'],
     :domain =>         'sustainabilitysummit.mit.com',
     :authentication => :plain
+    :enable_starttls_auto => true
   }
-  config.action_mailer.default_options = {"X-MC-Subaccount" => 'mit-summit'}
   config.action_mailer.delivery_method = :smtp
 
   config.paperclip_defaults = {
